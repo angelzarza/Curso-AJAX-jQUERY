@@ -23,6 +23,17 @@ String.prototype.toArray = function () {
   return this.split("");
 };
 
+// También podemos simular la herencia, usando Prototype, y añadiendo un método a
+// la clase Object, llamado extend(), con el que podemos copiar las propiedades de una
+// clase origen en otra que sea la clase destino:
+
+Object.extend = function (ClaseDestino, ClaseOrigen) {
+  for (var nombrePropiedad in ClaseOrigen) {
+    ClaseDestino[nombrePropiedad] = ClaseOrigen[nombrePropiedad];
+  }
+  return ClaseDestino;
+};
+
 // Usamos prototype para evitar el consumo excesivo de recursos,
 // automáticamente heredara las propiedades y métodos de otro
 // objeto llamado prototype. Por lo tanto, si se modifica el objeto prototipo o le añadimos
